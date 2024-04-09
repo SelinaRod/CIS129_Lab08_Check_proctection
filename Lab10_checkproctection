@@ -9,7 +9,7 @@ def format_check_protected(amount):
     if '.' in amount:
         dollars, cents = amount.split('.')
     else:
-        d699ollars = amount
+        dollars = amount
         cents = '00'
 
     # Add zeros if necessary for cents
