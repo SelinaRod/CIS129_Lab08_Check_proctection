@@ -1,0 +1,38 @@
+# Author: Selina Rodriguez
+# CIS 129 - Prog & Problm Solve
+# Date: 04-08-2024
+# Program Function: User inputs a dollar amounts then prints the amount in check-protected format of 10 characters. 
+
+
+def format_check_protected(amount):
+    # Check if the amount contains a decimal point
+    if '.' in amount:
+        dollars, cents = amount.split('.')
+    else:
+        d699ollars = amount
+        cents = '00'
+
+    # Add zeros if necessary for cents
+    cents = cents.ljust(2, '0')
+
+    # Format the dollars with commas
+    dollars = '{:,.0f}'.format(float(dollars))
+
+    # Combine dollars with cents
+    formatted_amount = dollars + '.' + cents
+
+    # Check if the length is greater than 10 characters
+    if len(formatted_amount) > 10:
+        # up to 10 characters
+        formatted_amount = formatted_amount[:8]
+    else:
+        # Fill with asterisks if length is less than 10
+        formatted_amount = formatted_amount.rjust(10, '*')
+
+    return formatted_amount
+
+# Input dollar amount
+dollar_amount = input("Enter dollar amount: $")
+
+# Format and print the check-protected amount
+print("Check-protected format: $", format_check_protected(dollar_amount))
